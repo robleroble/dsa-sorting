@@ -23,6 +23,15 @@ function merge(arr1, arr2) {
   return arr;
 }
 
-function mergeSort() {}
+function mergeSort(arr) {
+  // BASE CASE
+  if (arr.length <= 1) return arr;
+
+  // NORMAL CASE
+  let midIdx = Math.floor(arr.length / 2);
+  let leftHalf = mergeSort(arr.slice(0, midIdx));
+  let rightHalf = mergeSort(arr.slice(midIdx));
+  return merge(leftHalf, rightHalf);
+}
 
 module.exports = { merge, mergeSort };
